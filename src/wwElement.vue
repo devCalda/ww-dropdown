@@ -144,6 +144,13 @@ export default {
       this.resizeObserver.disconnect();
     }
   },
+  watch: {
+    'content.isOpened'(newValue, oldValue) {
+      if (newValue === true) {
+        this.openDropdown();
+      }
+    },
+  },
   methods: {
     handleClick() {
       if (this.content.triggerType === 'click' || this.wwFrontState.screenSize !== 'default' && !this.isEditing) {

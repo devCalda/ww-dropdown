@@ -8,11 +8,20 @@ export default {
       groups: ["Trigger", "Dropdown"],
     },
   },
-  actions: [
-    { label: "Close dropdown", action: "closeDropdown" },
-    { label: "Open dropdown", action: "openDropdown" },
-  ],
+  actions: [{ label: "Close dropdown", action: "closeDropdown" }],
   properties: {
+    isOpened: {
+      type: "OnOff",
+      label: "Is opened",
+      section: "settings",
+      bindable: true,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: "boolean",
+        tooltip: "A boolean that defines whether dropdown is opened",
+      },
+      /* wwEditor:end */
+    },
     triggerType: {
       label: {
         en: "Trigger",

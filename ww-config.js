@@ -8,8 +8,23 @@ export default {
       groups: ["Trigger", "Dropdown"],
     },
   },
-  actions: [{ label: 'Close dropdown', action: 'closeDropdown' }],
+  actions: [
+    { label: "Close dropdown", action: "closeDropdown" },
+    { label: "Open dropdown", action: "openDropdown" },
+  ],
   properties: {
+    isOpened: {
+      type: "OnOff",
+      label: "Is opened",
+      section: "settings",
+      bindable: true,
+      /* wwEditor:start */
+      bindingValidation: {
+        type: "boolean",
+        tooltip: "A boolean that defines whether dropdown is opened",
+      },
+      /* wwEditor:end */
+    },
     triggerType: {
       label: {
         en: "Trigger",
@@ -20,7 +35,7 @@ export default {
         options: [
           { value: "click", label: { en: "Click" } },
           { value: "hover", label: { en: "Hover" } },
-          { value: "right-click", label: { en: "Right click" } }
+          { value: "right-click", label: { en: "Right click" } },
         ],
       },
     },
@@ -97,9 +112,9 @@ export default {
         useVar: true,
       },
       bindingValidation: {
-        type: 'string',
-        tooltip: 'A string that defines size of offset in px or %',
-      }
+        type: "string",
+        tooltip: "A string that defines size of offset in px or %",
+      },
     },
     offsetY: {
       type: "Length",
@@ -117,9 +132,9 @@ export default {
         useVar: true,
       },
       bindingValidation: {
-        type: 'string',
-        tooltip: 'A string that defines size of offset in px or %',
-      }
+        type: "string",
+        tooltip: "A string that defines size of offset in px or %",
+      },
     },
     triggerLayout: {
       hidden: true,
@@ -136,8 +151,8 @@ export default {
       },
     },
     dropdownZIndex: {
-      label: 'Dropdown z-index',
-      type: 'Number',
+      label: "Dropdown z-index",
+      type: "Number",
       options: {
         min: 0,
         max: 100,
@@ -151,6 +166,7 @@ export default {
         type: "number",
         tooltip: "A number that defines the Z-index of the dropdown.",
       },
+      /* wwEditor:end */
     },
     disabled: {
       type: "OnOff",
@@ -163,6 +179,7 @@ export default {
         type: "boolean",
         tooltip: "A boolean that defines the disabled state`",
       },
+      /* wwEditor:end */
     },
     animated: {
       type: "OnOff",
@@ -175,12 +192,13 @@ export default {
         type: "boolean",
         tooltip: "A boolean that defines whether element is animated",
       },
+      /* wwEditor:end */
     },
     forceDisplayEditor: {
       type: "OnOff",
       label: {
         en: "Force display in editor",
-      }
+      },
     },
   },
 };

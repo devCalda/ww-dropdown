@@ -23,6 +23,7 @@ export default {
   data() {
     return {
       isOpened: false,
+      isOpenedExternal: false,
       coordinates: { width: 0, height: 0 },
       dropdownSize: 0,
       isMouseInside: false,
@@ -149,11 +150,19 @@ export default {
         if (!this.content.disabled) this.isOpened = !this.isOpened;
       }
     },
+    openDropdown() {
+      this.isOpened = true;
+      this.isOpenedExternal = true;
+
+      setTimeout(() => {
+        this.isOpenedExternal = false;
+      }, 200);
+    },
     closeDropdown() {
       this.isOpened = false;
     },
     handleClickOutside() {
-      if (!this.isMouseInside && ((this.content.triggerType === 'click' || this.content.triggerType === 'right-click') || this.wwFrontState.screenSize !== 'default')) {
+      if (!this.isMouseInside && !this.isOpenedExternal && ((this.content.triggerType === 'click' || this.content.triggerType === 'right-click') || this.wwFrontState.screenSize !== 'default')) {
         if (!this.content.disabled) this.isOpened = false;
       }
     },
